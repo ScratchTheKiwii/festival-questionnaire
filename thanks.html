@@ -1,60 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Festival Updates Form</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Thank You!</title>
   <style>
-    body { font-family: sans-serif; padding: 20px; max-width: 500px; margin: auto; }
-    input, textarea, button { width: 100%; padding: 10px; margin-top: 10px; }
-    label { display: block; margin-top: 10px; }
-    #successMessage { display: none; background:#85c546; color: white; padding: 20px; 
-                      border-radius: 8px; margin-top: 20px; font-size: 18px; text-align: center; }
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+      background: url('your-image.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #333;
+    }
+    .container {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 30px;
+      border-radius: 10px;
+      display: inline-block;
+      max-width: 600px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    }
+    h1 {
+      color: #28a745;
+      font-size: 28px;
+    }
+    p {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+    .button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 24px;
+      background-color: #007bff;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    .contact-form {
+      margin-top: 30px;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 8px;
+      text-align: left;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+    label {
+      font-size: 14px;
+      margin-top: 10px;
+      display: block;
+    }
+    button {
+      background-color: #85c546;
+      color: white;
+      font-weight: bold;
+      border: none;
+      padding: 12px 0;
+      width: 100%;
+      border-radius: 5px;
+      font-size: 18px;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+    button:hover {
+      background-color: #74b03d;
+    }
+    .form-image {
+      width: 100%;
+      max-height: 250px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+    #successMessage {
+      display: none;
+      background: #85c546;
+      color: white;
+      padding: 15px;
+      border-radius: 6px;
+      margin-top: 20px;
+      font-size: 16px;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
+  <div class="container">
+    <img src="logo.png" alt="Festival Banner" class="form-image" />
 
-  <h2>Subscribe for Festival Updates</h2>
-
-  <form id="updateForm">
-    <input type="text" name="name" placeholder="Your Name (optional)" />
-    <input type="email" name="contact_email" placeholder="Email or WhatsApp" required />
-    <input type="tel" name="whatsapp_number" placeholder="WhatsApp Number (optional)" />
-    <textarea name="interest_message" placeholder="Any message or interest?"></textarea>
-
-    <label>
-      <input type="checkbox" name="gdpr_consent" required />
-      I agree to receive festival updates (your data stays private).
-    </label>
-
-    <button type="submit" id="subscribeBtn">Subscribe</button>
-  </form>
-
-  <div id="successMessage">✅ Thank You for Subscribing! You're now on the list for festival updates 🎉</div>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const form = document.getElementById("updateForm");
-      const successMessage = document.getElementById("successMessage");
-      const subscribeBtn = document.getElementById("subscribeBtn");
-
-      form.addEventListener("submit", function (e) {
-        e.preventDefault(); // Stop page reload
-
-        const formData = new FormData(form);
-
-        fetch("https://hook.eu2.make.com/nrxt5pjdo44r9syfkv6fm8omo20jzulj", {
-          method: "POST",
-          body: formData
-        })
-        .then(response => {
-          if (!response.ok) throw new Error("Network error");
-          
-          successMessage.style.display = "block"; // Show success message
-          form.reset();
-          
-          // Delay actual form submission to ensure message visibility
-          setTimeout(() => {
-            window.location.href = "https://scratchthekiwii.github.io/festival-questionnaire/thanks.html";
-          }, 1500);
-        })
+    <h1>Thank You for Your Submission!</h1>
+    <p>Your response has been recorded successfully. We appreciate your time and effort! 🎉</p>
+    <p>If you have any questions, feel free to <a href="mailto:ScratchTheKiwii@gmail.com">contact us</a>.</p>
+    <a href="https://scratchthekiwii.github.io/festival-questionnaire/" class="b
