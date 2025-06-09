@@ -77,6 +77,15 @@
     .contact-form button:hover {
       background-color: #218838;
     }
+    .success-message {
+      background-color: #d4edda;
+      color: #155724;
+      padding: 12px;
+      margin-top: 15px;
+      border: 1px solid #c3e6cb;
+      border-radius: 6px;
+      display: none;
+    }
   </style>
 </head>
 <body>
@@ -92,10 +101,7 @@
 
   <div class="contact-form">
     <h2>Want to Stay in Touch?</h2>
-    <form id="subscribeForm" action="https://formsubmit.co/YOUR_EMAIL_HERE" method="POST">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_next" value="https://scratchthekiwii.github.io/festival-questionnaire/thankyou.html">
-
+    <form id="subscribeForm">
       <input type="text" name="name" placeholder="Your Name (Optional)">
       <input type="email" name="contact_email" placeholder="Your Email or WhatsApp" required>
       <textarea name="interest_message" placeholder="Anything you’d like to share?"></textarea>
@@ -107,22 +113,45 @@
 
       <button type="submit">Subscribe</button>
     </form>
+
+    <div class="success-message" id="successMessage">
+      ✅ Your message has been sent successfully. Thanks for staying in touch!
+    </div>
   </div>
 </div>
 
-<!-- ✅ JavaScript -->
 <script>
-  document.getElementById('subscribeForm').addEventListener('submit', function(e) {
-    const checkbox = document.getElementById('gdprConsent');
-    if (!checkbox.checked) {
-      alert('Please agree to the data protection notice before submitting.');
-      e.preventDefault(); // prevent form submission
+  document.getElementById('subscribeForm').addEventListener('submit', async function(e) {
+    e.preventDefault(); // Prevent normal form submission
+
+    const form = e.target;
+    const gdprCheckbox = document.getElementById('gdprConsent');
+    const successMessage = document.getElementById('successMessage');
+
+    if (!gdprCheckbox.checked) {
+      alert("Please agree to the privacy terms before submitting.");
       return;
     }
 
-    // Optional: Add visual feedback before redirect
-    alert('Thanks! You will be redirected now...');
-    // Let the form submit normally to FormSubmit
+    // Prepare form data for FormSubmit
+    const formData = new FormData(form);
+    formData.append("_captcha", "false");
+
+    try {
+      const response = await fetch("https://formsubmit.co/YOUR_EMAIL_HERE", {
+        method: "POST",
+        body: formData
+      });
+
+      if (response.ok) {
+        form.reset();
+        successMessage.style.display = "block";
+      } else {
+        alert("There was a problem sending your message. Try again later.");
+      }
+    } catch (error) {
+      alert("Something went wrong. Please check your connection.");
+    }
   });
 </script>
 
