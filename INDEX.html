@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <title>Dotazník – Rodinný Festival v Přírodě (Tarn, Léto 2026)</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 2rem;
+      background-color: #f7f9f8;
+      color: #333;
+    }
+    h1, h2 {
+      color: #2f5d4e;
+    }
+    .question {
+      margin-bottom: 1.5rem;
+      padding: 1rem;
+      background: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    input[type="text"], textarea {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.2rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    input[type="submit"] {
+      padding: 0.7rem 1.5rem;
+      background-color: #2f5d4e;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Dotazník / Questionnaire – Rodinný Festival v Přírodě (Tarn, Léto 2026)</h1>
+  <p><em>Cílem je zjistit zájem českých rodin o mezinárodní přírodní festival ve Francii. This form is bilingual Czech/English.</em></p>
+
+  <form action="https://formsubmit.co/ScratchTheKiwii@gmail.com" method="POST">
+    <div class="question">
+      <label>1. Kolik členů má vaše rodina? (dospělí, děti, věk dětí)<br>How many people are in your family?</label>
+      <textarea name="family_size"></textarea>
+    </div>
+
+    <div class="question">
+      <label>2. Už jste byli na vícedenní rodinné akci v zahraničí?<br>Have you attended a multi-day family event abroad?</label>
+      <label><input type="radio" name="experience" value="yes_regularly"> Ano, pravidelně / Yes, regularly</label>
+      <label><input type="radio" name="experience" value="once_or_twice"> Ano, jednou nebo dvakrát / Once or twice</label>
+      <label><input type="radio" name="experience" value="no_but_would_love"> Ne, ale rádi bychom / No, but we would love to</label>
+      <label><input type="radio" name="experience" value="not_interested"> Ne, nemáme zájem / Not interested</label>
+    </div>
+
+    <div class="question">
+      <label>3. Jaký způsob dopravy by byl reálně možný? / Transport options</label>
+      <label><input type="checkbox" name="transport" value="car"> Vlastní auto / Own car</label>
+      <label><input type="checkbox" name="transport" value="carpool"> Sdílení auta / Carpool</label>
+      <label><input type="checkbox" name="transport" value="train"> Vlak / Train</label>
+      <label><input type="checkbox" name="transport" value="bus"> Autobus / Bus</label>
+      <label><input type="checkbox" name="transport" value="flight"> Letadlo + auto / Flight + rental car</label>
+      <label><input type="text" name="transport_other" placeholder="Jiný způsob / Other"></label>
+    </div>
+
+    <div class="question">
+      <label>4. Sdílení dopravy s jinými rodinami? / Carpooling?</label>
+      <label><input type="radio" name="carpool" value="yes"> Ano / Yes</label>
+      <label><input type="radio" name="carpool" value="maybe"> Možná / Maybe</label>
+      <label><input type="radio" name="carpool" value="no"> Ne / No</label>
+    </div>
+
+    <div class="question">
+      <label>5. Vaše motivace pro účast? / Why would you attend?</label>
+      <label><input type="checkbox" name="motivation" value="nature_family"> Zážitky v přírodě / Nature-based family experience</label>
+      <label><input type="checkbox" name="motivation" value="social_kids"> Socializace dětí / Kids socialisation</label>
+      <label><input type="checkbox" name="motivation" value="language_culture"> Kulturní výměna / Language & culture</label>
+      <label><input type="checkbox" name="motivation" value="parent_rest"> Odpočinek rodičů / Rest for parents</label>
+      <label><input type="checkbox" name="motivation" value="community"> Sdílení s dalšími rodinami / Community</label>
+      <label><input type="text" name="motivation_other" placeholder="Jiný důvod / Other"></label>
+    </div>
+
+    <div class="question">
+      <label>6. Co je pro vás nejdůležitější? / What matters most?</label>
+      <label><input type="checkbox" name="priority" value="safe"> Bezpečné prostředí / Safe environment</label>
+      <label><input type="checkbox" name="priority" value="child_activities"> Smysluplné aktivity dětí / Good child activities</label>
+      <label><input type="checkbox" name="priority" value="relax"> Klid / Relax</label>
+      <label><input type="checkbox" name="priority" value="parent_support"> Podpora rodičů / Parent support</label>
+      <label><input type="checkbox" name="priority" value="exchange"> Kulturní výměna / Cultural exchange</label>
+      <label><input type="checkbox" name="priority" value="local_experience"> Lokální zážitky / Local experiences</label>
+    </div>
+
+    <div class="question">
+      <label>7. Chtěli byste čas jen pro rodiče? / Time just for parents?</label>
+      <label><input type="radio" name="parents_time" value="yes"> Ano / Yes</label>
+      <label><input type="radio" name="parents_time" value="maybe"> Možná / Maybe</label>
+      <label><input type="radio" name="parents_time" value="no"> Ne / No</label>
+    </div>
+
+    <div class="question">
+      <label>8. Jaké služby by vás zajímaly? / What services would interest you?</label>
+      <label><input type="checkbox" name="services" value="chinese_medicine"> Čínská medicína / Chinese medicine</label>
+      <label><input type="checkbox" name="services" value="spa"> Spa, wellness</label>
+      <label><input type="checkbox" name="services" value="guided_tours"> Procházky s průvodcem / Guided walks</label>
+      <label><input type="checkbox" name="services" value="minigolf"> Minigolf, hry / Games</label>
+      <label><input type="checkbox" name="services" value="creative_workshops"> Kreativní workshopy / Creative workshops</label>
+      <label><input type="checkbox" name="services" value="escape_game"> Úniková hra v lese / Escape game in nature</label>
+      <label><input type="checkbox" name="services" value="driver"> Řidič / Driver</label>
+      <label><input type="checkbox" name="services" value="childcare"> Hlídání dětí / Childcare</label>
+    </div>
+
+    <div class="question">
+      <label>9. Jaký rozpočet byste očekávali za 5 dní? / What budget would you expect for 5 days?</label>
+      <label><input type="radio" name="budget" value="<250"> Do 250 €</label>
+      <label><input type="radio" name="budget" value="250-400"> 250–400 €</label>
+      <label><input type="radio" name="budget" value="400-600"> 400–600 €</label>
+      <label><input type="radio" name="budget" value=">600"> Více než 600 €</label>
+      <label><input type="radio" name="budget" value="depends"> Záleží na nabídce / Depends on what's included</label>
+    </div>
+
+    <div class="question">
+      <label>10. Co by vás přesvědčilo přijet? Co by vás odradilo?<br>What would convince you or discourage you?</label>
+      <textarea name="final_comments"></textarea>
+    </div>
+
+    <input type="submit" value="Odeslat / Submit">
+  </form>
+</body>
+</html>
