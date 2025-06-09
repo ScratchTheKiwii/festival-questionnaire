@@ -8,7 +8,8 @@
     body { font-family: sans-serif; padding: 20px; max-width: 500px; margin: auto; }
     input, textarea, button { width: 100%; padding: 10px; margin-top: 10px; }
     label { display: block; margin-top: 10px; }
-    #successMessage { display: none; color: green; margin-top: 20px; }
+    #successMessage { display: none; background:#85c546; color: white; padding: 20px; 
+                      border-radius: 8px; margin-top: 20px; font-size: 18px; text-align: center; }
   </style>
 </head>
 <body>
@@ -26,15 +27,16 @@
       I agree to receive festival updates (your data stays private).
     </label>
 
-    <button type="submit">Subscribe</button>
+    <button type="submit" id="subscribeBtn">Subscribe</button>
   </form>
 
-  <div id="successMessage">✅ You're on the list! Thank you 🎉</div>
+  <div id="successMessage">✅ Subscription Confirmed! You're now on the list! 🎉</div>
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const form = document.getElementById("updateForm");
-      const success = document.getElementById("successMessage");
+      const successMessage = document.getElementById("successMessage");
+      const subscribeBtn = document.getElementById("subscribeBtn");
 
       form.addEventListener("submit", function (e) {
         e.preventDefault(); // Stop page from reloading
@@ -48,7 +50,13 @@
         .then(response => {
           if (!response.ok) throw new Error("Network error");
           form.reset();
-          success.style.display = "block";
+          
+          successMessage.style.display = "block"; // Show success message
+          
+          // Delay actual form submission to ensure message visibility
+          setTimeout(() => {
+            window.location.href = "https://scratchthekiwii.github.io/festival-questionnaire/thanks.html";
+          }, 1500);
         })
         .catch(error => {
           alert("❌ Something went wrong. Please try again.");
