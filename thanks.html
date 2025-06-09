@@ -1,104 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thank You!</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 50px;
-            background: url('your-image.jpg') no-repeat center center fixed;
-            background-size: cover;
-            color: #333;
-        }
-        .container {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 30px;
-            border-radius: 10px;
-            display: inline-block;
-            max-width: 600px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-        }
-        h1 {
-            color: #28a745;
-            font-size: 28px;
-        }
-        p {
-            font-size: 18px;
-            margin-bottom: 20px;
-        }
-        .button {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 12px 24px;
-            background-color: #007bff;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-        .contact-form {
-            margin-top: 30px;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 8px;
-            text-align: left;
-        }
-        input, textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        .form-image {
-            width: 100%;
-            max-height: 250px;
-            object-fit: cover;
-            border-radius: 8px;
-            margin-bottom: 20px;
-        }
-        #successMessage {
-            display: none;
-            background: #85c546;
-            color: white;
-            padding: 20px;
-            border-radius: 8px;
-            font-size: 18px;
-            text-align: center;
-            margin-top: 20px;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Thank You</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      padding: 40px;
+      text-align: center;
+    }
+    .container {
+      background: white;
+      padding: 30px;
+      max-width: 700px;
+      margin: auto;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    .form-image {
+      width: 100%;
+      border-radius: 8px;
+      max-height: 250px;
+      object-fit: cover;
+      margin-bottom: 20px;
+    }
+    h1 {
+      color: #28a745;
+    }
+    p {
+      font-size: 17px;
+    }
+    a.button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 24px;
+      background-color: #007bff;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+    .contact-form {
+      text-align: left;
+      margin-top: 40px;
+      background: #f9f9f9;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      margin: 10px 0;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    .contact-form label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+    }
+    .contact-form button {
+      background-color: #28a745;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .contact-form button:hover {
+      background-color: #218838;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <img src="logo.png" alt="Festival Banner" class="form-image">
-        <h1>Thank You for Your Submission!</h1>
-        <p>Your response has been recorded successfully. We appreciate your time and effort! 🎉</p>
-        <p>If you have any questions, feel free to <a href="mailto:ScratchTheKiwii@gmail.com">contact us</a>.</p>
-        <a href="https://scratchthekiwii.github.io/festival-questionnaire/" class="button">Back to Homepage</a>
 
-        <!-- Contact Form for Updates -->
-<div class="contact-form">
-    <h2>Want to Stay Updated?</h2>
-    <p>If you'd like to receive festival updates, leave your contact details below!</p>
-    <form id="updateForm">
-        <input type="text" name="name" placeholder="Your Name (Optional)">
-        <input type="email" name="contact_email" placeholder="Your Email or WhatsApp" required>
-        <input type="tel" name="whatsapp_number" placeholder="WhatsApp Number (Optional)">
-        <textarea name="interest_message" placeholder="Any message or request"></textarea>
-        <label>
-            <input type="checkbox" name="gdpr_consent" required>
-            I agree to receive festival updates. My contact info will not be shared.
-        </label>
-        <button type="submit" id="subscribeBtn">Subscribe</button>
+<div class="container">
+  <img src="23771b22-9abb-46d5-be87-6fac93a5c2ea.png" alt="Thank You Banner" class="form-image" />
+
+  <h1>🎉 Thank You!</h1>
+  <p>We’ve received your response. You're awesome!</p>
+  <p>If you left a message, we’ll get back to you soon.</p>
+
+  <a href="https://scratchthekiwii.github.io/festival-questionnaire/" class="button">← Back to Homepage</a>
+
+  <div class="contact-form">
+    <h2>Want to Stay in Touch?</h2>
+    <form id="subscribeForm" action="https://formsubmit.co/YOUR_EMAIL_HERE" method="POST">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://scratchthekiwii.github.io/festival-questionnaire/thankyou.html">
+
+      <input type="text" name="name" placeholder="Your Name (Optional)">
+      <input type="email" name="contact_email" placeholder="Your Email or WhatsApp" required>
+      <textarea name="interest_message" placeholder="Anything you’d like to share?"></textarea>
+
+      <label>
+        <input type="checkbox" id="gdprConsent" required>
+        I agree to receive updates. My contact info stays private.
+      </label>
+
+      <button type="submit">Subscribe</button>
     </form>
-
-    <!-- Success Message -->
-    <div id="successMessage" style="display:none; background:#85c546; color:white; padding:20px; 
-         border-radius:8px; font-size:18px; text-align:center; margin-top:20px;">
-        ✅ Thank You for Subscribing! You're now on the list for festival updates 🎉
-    </div>
+  </div>
 </div>
+
+<!-- ✅ JavaScript -->
+<script>
+  document.getElementById('subscribeForm').addEventListener('submit', function(e) {
+    const checkbox = document.getElementById('gdprConsent');
+    if (!checkbox.checked) {
+      alert('Please agree to the data protection notice before submitting.');
+      e.preventDefault(); // prevent form submission
+      return;
+    }
+
+    // Optional: Add visual feedback before redirect
+    alert('Thanks! You will be redirected now...');
+    // Let the form submit normally to FormSubmit
+  });
+</script>
+
+</body>
+</html>
