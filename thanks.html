@@ -87,6 +87,22 @@
                     I agree to receive festival updates. My contact info will not be shared.
                 </label>
                 <button type="submit">Subscribe</button>
+         <div id="successMessage" style="display:none; background:#a8df65; color:white; padding:20px; border-radius:8px; font-size:18px;">
+   ✅ Subscription Confirmed! You're now on the list for festival updates.  
+</div>
+
+<script>
+   document.querySelector("form").addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevents default behavior for a moment
+      document.getElementById("successMessage").style.display = "block";
+      setTimeout(() => this.submit(), 1000); // Submits after showing message
+   });
+</script>
+
+<script>
+   document.getElementById("successMessage").style.display = "block";
+</script>
+
             </form>
         </div>
     </div>
