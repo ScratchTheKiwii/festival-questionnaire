@@ -81,56 +81,24 @@
         <a href="https://scratchthekiwii.github.io/festival-questionnaire/" class="button">Back to Homepage</a>
 
         <!-- Contact Form for Updates -->
-        <div class="contact-form">
-            <h2>Want to Stay Updated?</h2>
-            <p>If you'd like to receive festival updates, leave your contact details below!</p>
-            <form id="updateForm">
-                <input type="text" name="name" placeholder="Your Name (Optional)">
-                <input type="email" name="contact_email" placeholder="Your Email or WhatsApp" required>
-                <textarea name="interest_message" placeholder="Any message or request"></textarea>
-                <label>
-                    <input type="checkbox" name="gdpr_consent" required>
-                    I agree to receive festival updates. My contact info will not be shared.
-                </label>
-                <button type="submit" id="subscribeBtn">Subscribe</button>
-            </form>
+<div class="contact-form">
+    <h2>Want to Stay Updated?</h2>
+    <p>If you'd like to receive festival updates, leave your contact details below!</p>
+    <form id="updateForm">
+        <input type="text" name="name" placeholder="Your Name (Optional)">
+        <input type="email" name="contact_email" placeholder="Your Email or WhatsApp" required>
+        <input type="tel" name="whatsapp_number" placeholder="WhatsApp Number (Optional)">
+        <textarea name="interest_message" placeholder="Any message or request"></textarea>
+        <label>
+            <input type="checkbox" name="gdpr_consent" required>
+            I agree to receive festival updates. My contact info will not be shared.
+        </label>
+        <button type="submit" id="subscribeBtn">Subscribe</button>
+    </form>
 
-            <!-- Success Message -->
-            <div id="successMessage">✅ Thank You for Subscribing! You're now on the list for festival updates 🎉</div>
-        </div>
+    <!-- Success Message -->
+    <div id="successMessage" style="display:none; background:#85c546; color:white; padding:20px; 
+         border-radius:8px; font-size:18px; text-align:center; margin-top:20px;">
+        ✅ Thank You for Subscribing! You're now on the list for festival updates 🎉
     </div>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const form = document.getElementById("updateForm");
-            const successMessage = document.getElementById("successMessage");
-            const subscribeBtn = document.getElementById("subscribeBtn");
-
-            form.addEventListener("submit", function (e) {
-                e.preventDefault(); // Stop page reload
-
-                const formData = new FormData(form);
-
-                fetch("https://hook.eu2.make.com/nrxt5pjdo44r9syfkv6fm8omo20jzulj", {
-                    method: "POST",
-                    body: formData
-                })
-                .then(response => {
-                    if (!response.ok) throw new Error("Network error");
-
-                    successMessage.style.display = "block"; // Show success message
-                    form.reset();
-
-                    setTimeout(() => {
-                        window.location.href = "https://scratchthekiwii.github.io/festival-questionnaire/thanks.html";
-                    }, 1500);
-                })
-                .catch(error => {
-                    alert("❌ Something went wrong. Please try again.");
-                    console.error(error);
-                });
-            });
-        });
-    </script>
-</body>
-</html>
+</div>
