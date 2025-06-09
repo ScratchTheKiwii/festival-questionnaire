@@ -1,123 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thank You!</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 50px;
-            background: url('your-image.jpg') no-repeat center center fixed;
-            background-size: cover;
-            color: #333;
-        }
-        .container {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 30px;
-            border-radius: 10px;
-            display: inline-block;
-            max-width: 600px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-        }
-        h1 {
-            color: #28a745;
-            font-size: 28px;
-        }
-        p {
-            font-size: 18px;
-            margin-bottom: 20px;
-        }
-        .button {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 12px 24px;
-            background-color: #007bff;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-        .contact-form {
-            margin-top: 30px;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 8px;
-            text-align: left;
-        }
-        input, textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        .form-image {
-            width: 100%;
-            max-height: 250px;
-            object-fit: cover;
-            border-radius: 8px;
-            margin-bottom: 20px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Festival Updates Form</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body { font-family: sans-serif; padding: 20px; max-width: 500px; margin: auto; }
+    input, textarea, button { width: 100%; padding: 10px; margin-top: 10px; }
+    label { display: block; margin-top: 10px; }
+    #successMessage { display: none; color: green; margin-top: 20px; }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <!-- IMAGE PLACEHOLDER -->
-        <img src="logo.png" alt="Festival Banner" class="form-image">
 
-        <h1>Thank You for Your Submission!</h1>
-        <p>Your response has been recorded successfully. We appreciate your time and effort! 🎉</p>
-        <p>If you have any questions, feel free to <a href="mailto:ScratchTheKiwii@gmail.com">contact us</a>.</p>
-        <a href="https://scratchthekiwii.github.io/festival-questionnaire/" class="button">Back to Homepage</a>
+  <h2>Subscribe for Festival Updates</h2>
 
-        <!-- NEW: Contact Form for Updates -->
-        <div class="contact-form">
-            <h2>Want to Stay Updated?</h2>
-            <p>If you'd like to receive festival updates, leave your contact details below!</p>
-            <form action="https://hook.eu2.make.com/nrxt5pjdo44r9syfkv6fm8omo20jzulj" method="POST">
+  <form id="updateForm">
+    <input type="text" name="name" placeholder="Your Name (optional)" />
+    <input type="email" name="contact_email" placeholder="Email or WhatsApp" required />
+    <input type="tel" name="whatsapp_number" placeholder="WhatsApp Number (optional)" />
+    <textarea name="interest_message" placeholder="Any message or interest?"></textarea>
 
-                <input type="text" name="name" placeholder="Your Name (Optional)">
-                <input type="email" name="contact_email" placeholder="Your Email or WhatsApp">
-                <input type="tel" name="whatsapp_number" placeholder="Your WhatsApp Number">
-                <textarea name="interest_message" placeholder="Any message or request"></textarea>
-                <label>
-                    <input type="checkbox" name="gdpr_consent" required>
-                    I agree to receive festival updates. My contact info will not be shared.
-                </label>
-                <button type="submit">Subscribe</button>
-   
-        <div id="successMessage">
-          ✅ Subscription Confirmed! You're now on the list for festival updates.
-        </div>
-      </form>
-    </div>
-  </div>
+    <label>
+      <input type="checkbox" name="gdpr_consent" required />
+      I agree to receive festival updates (your data stays private).
+    </label>
+
+    <button type="submit">Subscribe</button>
+  </form>
+
+  <div id="successMessage">✅ You're on the list! Thank you 🎉</div>
 
   <script>
-    document.getElementById("updateForm").addEventListener("submit", function (event) {
-      event.preventDefault();
+    document.addEventListener("DOMContentLoaded", () => {
+      const form = document.getElementById("updateForm");
+      const success = document.getElementById("successMessage");
 
-      const form = event.target;
-      const formData = new FormData(form);
+      form.addEventListener("submit", function (e) {
+        e.preventDefault(); // Stop page from reloading
 
-      // Show success message immediately
-      document.getElementById("successMessage").style.display = "block";
+        const formData = new FormData(form);
 
-      // Submit to Make webhook via fetch
-      fetch("https://hook.eu2.make.com/nrxt5pjdo44r9syfkv6fm8omo20jzulj", {
-        method: "POST",
-        body: formData,
-      })
-        .then(() => {
-          // Optionally reset form after a few seconds
-          setTimeout(() => form.reset(), 3000);
+        fetch("https://hook.eu2.make.com/nrxt5pjdo44r9syfkv6fm8omo20jzulj", {
+          method: "POST",
+          body: formData
         })
-        .catch(() => {
-          alert("There was an error submitting your form. Please try again later.");
+        .then(response => {
+          if (!response.ok) throw new Error("Network error");
+          form.reset();
+          success.style.display = "block";
+        })
+        .catch(error => {
+          alert("❌ Something went wrong. Please try again.");
+          console.error(error);
         });
+      });
     });
   </script>
+
 </body>
 </html>
